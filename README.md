@@ -8,7 +8,7 @@ This is a guide to use 3 different methods in order to overcome imbalanced **tex
 3. Generative model - Training a T5 model for every rare class in the dataset.
 We will use those models to generate new records for every class using different inputs which are based on real texts from the class.
 <br>
-### The Data
+### The Data<br>
 **<ins>The dataset:</ins>** For this discussion we will use a dataset composed from HTML home pages of different websites, classified to industries based on their linkedin page.
 <br>
 
