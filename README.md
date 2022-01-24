@@ -15,7 +15,7 @@ We will use those models to generate new records for every class using different
 
 <ins>A snippet of the original dataset::</ins>
 <br>
-![Raw Dataset Example](RawDatasetExample.jpeg "Raw Dataset Example")
+![Raw Dataset Example](Images/RawDatasetExample.jpeg "Raw Dataset Example")
 <br>
 
 **<ins>EDA:</ins>** Since the dataset is composed of 147 classes and more than 1.7 million records, we chose to focus on 10 classes:
@@ -24,7 +24,7 @@ We will use those models to generate new records for every class using different
 
 **We can see the huge imbalance in the following image:**
 
-![Industries Volumes](IndustriesVolumes.png "Industries Volumes")
+![Industries Volumes](Images/IndustriesVolumes.png "Industries Volumes")
 <br>
 
 ### Preprocessing
@@ -41,7 +41,7 @@ Our preprocess included the following stages:
 ### T5 Fine Tuning
 In order to perform fine-tuning for [T5 model by HuggingFace](https://huggingface.co/docs/transformers/model_doc/t5), we first needed to adapt the given data into a fill-in-the-blank task (the original T5's pre-training task):
 <br>
-![Fill in the Blank Task](FillInTheBlank.jpeg "Fill in the Blank Task")
+![Fill in the Blank Task](Images/FillInTheBlank.jpeg "Fill in the Blank Task")
 <br>
 This adaption was done using the `create_labeled_data.py` script.
 <br>
