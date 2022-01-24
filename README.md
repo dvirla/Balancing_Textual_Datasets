@@ -63,7 +63,7 @@ In order to evaluate which method resulted in a better model w.r.t rare industri
 1. F1-Micro.
 2. F1-Macro.
 3. F1-Weighted.
-4. Recall per industry = <img src="https://render.githubusercontent.com/render/math?math=\frac{TruePositive}{TruePositive + FalseNegative}">
+4. Recall per industry.
 <br>
 Those methods are being compared in `Framework.ipynb` notebook as we will explain in the next section.
 <br>
