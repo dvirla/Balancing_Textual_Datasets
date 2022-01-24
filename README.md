@@ -10,7 +10,7 @@ We will use those models to generate new records for every class using different
 <br>
 
 ### The Data<br>
-** <ins>The dataset:</ins> ** For this discussion we will use a dataset composed from HTML home pages of different websites, classified to industries based on their linkedin page.
+<ins>The dataset:</ins> For this discussion we will use a dataset composed from HTML home pages of different websites, classified to industries based on their linkedin page.
 <br>
 
 <ins>A snippet of the original dataset::</ins>
