@@ -71,8 +71,8 @@ Those methods are being compared in `Framework.ipynb` notebook as we will explai
 * Note that all scripts and notebooks have hard-coded paths, if you want to reproduce with different dataset or setup you should change those paths.
 1. Run `preprocess.py`.
 2. Run `T5/fine_tuning_T5/create_labeled_data.py`.
-3. Run `T5/fine_tuning_T5/fine-tuning.py`.
+3. Run `T5/fine_tuning_T5/fine_tuning.py`.
 4. Run `T5/creating_generator_input.py`.
-5. Run `T5/generate_per_ind.py'.
+5. Run `T5/generate_per_ind.py`.
 6. Run all cells in `Framework.ipynb` and watch the magic happen (Specifically the last cells comparing the metrics mentioned above).
 
