@@ -67,6 +67,8 @@ In order to evaluate which method resulted in a better model w.r.t rare industri
 <br>
 Those methods are being compared in `Framework.ipynb` notebook as we will explain in the next section.
 <br>
+
+
 ### Reproduction
 * Note that all scripts and notebooks have hard-coded paths, if you want to reproduce with different dataset or setup you should change those paths.
 1. Run `preprocess.py`.
