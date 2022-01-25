@@ -84,3 +84,9 @@ In order to run with different configurations you will need to change the code i
 1. In order to use different model to train on the textual dataset (we used fasttext), you should change the class `Model` in `CustomModel.py` and implement the `train` function and all other functions you wish to use differently.
 2. If you wish to generate text with different model other than T5, you should check how to fine_tune it and implement it, then output the generated text as a list (see `generate_per_ind.py`).
 3. If you wish to work on a different dataset you should rewrite every path directing to dataset in `Framework.ipynb` and in `create_labeled_data.py`.
+4. In order to check different datasets using fasttext (or configured model via `CustomModel.py`) you can use `auto_checking_engine.py` by giving it the following parameters when running (in the same order):
+   * fasttext_train_file_path
+   * save_model_path
+   * train_dataset_path
+   * test_dataset_path
+   * ids
