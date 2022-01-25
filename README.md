@@ -20,9 +20,9 @@ We will use those models to generate new records for every class using different
 
 **<ins>EDA:</ins>** Since the dataset is composed of 147 classes and more than 1.7 million records, we chose to focus on 10 classes:
 * 5 of the most frequent classes.
-* 5 of the least frequent classe s among those that have more than 1K records.
+* 5 of the least frequent classes among those that have more than 1K records.
 
-**We can see the huge imbalance in the following image:**
+**We can see the huge imbalance in the following image(Notice the log scale):**
 
 ![Industries Volumes](Images/IndustriesVolumes.png "Industries Volumes")
 <br>
@@ -36,7 +36,8 @@ Our preprocess included the following stages:
 5. removing tags that remained from html.
 6. removing the first sentence and last 2 sentences from the texts because the usually contained HTML garbage (e.g.: copyrights, dropdown menu etc.)
 7. Transforming the dataset into a format which is used by [fasttext for text classification](https://fasttext.cc/docs/en/supervised-tutorial.html) library.
-<br>
+
+The preprocessing took place in the file `preprocess.py` <br>
 
 ### T5 Fine Tuning
 In order to perform fine-tuning for [T5 model by HuggingFace](https://huggingface.co/docs/transformers/model_doc/t5), we first needed to adapt the given data into a fill-in-the-blank task (the original T5's pre-training task):
@@ -46,17 +47,24 @@ In order to perform fine-tuning for [T5 model by HuggingFace](https://huggingfac
 This adaption was done using the `create_labeled_data.py` script.
 <br>
 Once we have the adapted data, we performed fine-tuning to the pre-trained T5 (we used `t5-base`). <br>
-The fine-tuning was done using `fine-tuning.py`.
+The fine-tuning was done using `fine-tuning.py`.<br>
+For each of the 5 least frequent classes we fine-tuned a different model that was trained only on the texts from that industry.
+We wanted each model to learn the specific style of its industry so that it will generate text similar to the real records.
 
 ### T5 Text Generation
-* In order to generate text using T5, we used the following input structure: `"summarize: <industry name>. <input>"` and then tokenized it using T5 Tokenizer. <br>
-* In order to create rich generated text (with different contexts) we created a list of different inputs"
-  * We used the script `creating_generator_input.py` in order to create the input for our text generator.
-  * Note that this script uses two files: `kw_per_ind.pkl` & `sentences_per_ind.pkl`. The first file is composed of selected keywords per industry (i.e. class), and the second file is composed out of randomly selected sentences per industry.
-  * To finalize the creation of the input, we chose with probability of 0.5 an input based on 2 random keywords, and with probability of 0.5 input based on 1 random sentence.
-* Using each input as described above, we generated texts per industry using `generate_per_ind.py`
-* Note that since the models were fine-tuned per industry, each of the generation process used a different model specific to the industry.
+To generate text, we used the 'summarize' T5 task. In order to create rich and diverse generated text (with different contexts) we created a list of different inputs.
+<br>
+The input was in built the following structure: `"summarize: <industry name>. <input>"`<br>
+in order to create the `<input>` we used the script `creating_generator_input.py` which does the following:
+  * This script uses two external files: `kw_per_ind.pkl` & `sentences_per_ind.pkl`. The first file is composed of selected keywords per industry (i.e. class), and the second file is composed out of randomly selected sentences per industry.
+  * Using these files, each `<input>` was chosen in one of the two ways:
+    * With probability of 0.5 an input based on 2 random keywords from `kw_per_ind.pkl`
+    * With probability of 0.5 input based on 1 random sentence from `sentences_per_ind.pkl`.
+  * Then we tokenized the entire input using the T5 Tokenizer <br>
 
+The text generation per industry was preformed using `generate_per_ind.py`
+* Note that since the models were fine-tuned per industry, each of the generation process used a different model specific to the industry.
+* The generation was performed with a 4 branch Beam Search and enforcing that no 2gram will appear more than once in the text. 
 
 ### Comparing the methods
 In order to evaluate which method resulted in a better model w.r.t rare industries, we used several metrics:
