@@ -78,3 +78,9 @@ Those methods are being compared in `Framework.ipynb` notebook as we will explai
 5. Run `T5/generate_per_ind.py`.
 6. Run all cells in `Framework.ipynb` and watch the magic happen (Specifically the last cells comparing the metrics mentioned above).
 
+
+### Running with different configurations
+In order to run with different configurations you will need to change the code in the following manner:
+1. In order to use different model to train on the textual dataset (we used fasttext), you should change the class `Model` in `CustomModel.py` and implement the `train` function and all other functions you wish to use differently.
+2. If you wish to generate text with different model other than T5, you should check how to fine_tune it and implement it, then output the generated text as a list (see `generate_per_ind.py`).
+3. If you wish to work on a different dataset you should rewrite every path directing to dataset in `Framework.ipynb` and in `create_labeled_data.py`.

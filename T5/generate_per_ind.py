@@ -4,9 +4,7 @@ from transformers import T5ForConditionalGeneration, AutoTokenizer
 import torch
 
 
-ind_names = ['package/freight delivery', 'animation']
-#ind_names = ['paper & forest products', 'international affairs', 'wireless']
-
+ind_names = ['package/freight delivery', 'animation', 'paper & forest products', 'international affairs', 'wireless']
 tokenizer = AutoTokenizer.from_pretrained("t5-base")
 with open('/home/vmadmin/StudentData/Generative/GenrationInputs/GenerationInputDicts/model_inputs_per_ind.pkl',
           'rb') as f:

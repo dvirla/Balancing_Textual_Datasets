@@ -1,16 +1,8 @@
 import pandas as pd
-import glob
-import torch
-from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, BertTokenizerFast, AutoModelWithLMHead, pipeline, AutoTokenizer
-import pickle
-from sklearn.model_selection import train_test_split
-from tqdm import tqdm
-from transformers import TrainingArguments
-from transformers import Trainer
 import tensorflow as tf
 
-from preprocessors import fill_in_the_blank
-import re
+from T5.fine_tuning_T5.preprocessors import fill_in_the_blank
+
 
 def replace_X_with_extra_id(text):
     i = 1
