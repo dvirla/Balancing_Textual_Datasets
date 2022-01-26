@@ -56,12 +56,4 @@ for ind in [0, 1, 2, 3, 4]:
         train_dataset=tokenized_datasets['train'],
     )
     trainer.train()
-    input_ids = tokenizer.encode('The <extra_id_1> walks in <extra_id_2> park', return_tensors='pt')
-    labels = tokenizer.encode('<extra_id_1> cute dog <extra_id_2> the <extra_id_3> </s>', return_tensors='pt')
-    # the forward function automatically creates the correct decoder_input_ids
-    print(model.model(input_ids=input_ids.to(torch.device('cuda')), labels=labels.to(torch.device('cuda'))))
-    input_ids = tokenizer("summarize: We are the best accounting company",
-                          return_tensors="pt").input_ids  # Batch size 1
-    outputs = model.model.generate(input_ids.to(torch.device('cuda')))
-    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
     model.model.save_pretrained(f'/home/vmadmin/StudentData/Generative/Models/model_{ind}.hfm')
