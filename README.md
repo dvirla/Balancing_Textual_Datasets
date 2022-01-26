@@ -35,7 +35,8 @@ Our preprocess included the following stages:
 4. Reducing multiple dots to a single dot.
 5. Removing tags that remained from html.
 6. Removing the first sentence and last 2 sentences from the texts because the usually contained HTML garbage (e.g.: copyrights, dropdown menu etc.)
-7. Transforming the dataset into a format which is used by [fasttext for text classification](https://fasttext.cc/docs/en/supervised-tutorial.html) library.
+7. Predicting the language of the text, and using only texts in english.
+8. Transforming the dataset into a format which is used by [fasttext for text classification](https://fasttext.cc/docs/en/supervised-tutorial.html) library.
 
 The preprocessing took place in the file `preprocess.py` <br>
 
