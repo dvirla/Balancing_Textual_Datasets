@@ -45,7 +45,6 @@ class DatasetPreprocess:
     def clean_text(s, lemmatizer=None, remove_words=None):
         s = re.sub(r'([a-z](?=[A-Z])|[A-Z](?=[A-Z][a-z]))', r'\1 ', s)
 
-        # Leave only english charachters (this removes numbers)
         s = re.sub(r"[^A-Za-z \(\)\-.:',?&0-9]+", ' ', s)
         # reduce multiple spaces
         s = re.sub(' +', ' ', s)
