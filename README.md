@@ -31,10 +31,10 @@ We will use those models to generate new records for every class using different
 Our preprocess included the following stages:
 1. Separating words that were wrongly concatenated, probably due to scraping, e.g.: RetailBusiness -> Retail Business.
 2. Removing every character which is not an english letter, a number or one of the following punctuation marks: `['(', ')', '-', '.', ':', ',', '?', '&']`.
-3. reducing multiple spaces to a single space.
-4. reducing multiple dots to a single dot.
-5. removing tags that remained from html.
-6. removing the first sentence and last 2 sentences from the texts because the usually contained HTML garbage (e.g.: copyrights, dropdown menu etc.)
+3. Reducing multiple spaces to a single space.
+4. Reducing multiple dots to a single dot.
+5. Removing tags that remained from html.
+6. Removing the first sentence and last 2 sentences from the texts because the usually contained HTML garbage (e.g.: copyrights, dropdown menu etc.)
 7. Transforming the dataset into a format which is used by [fasttext for text classification](https://fasttext.cc/docs/en/supervised-tutorial.html) library.
 
 The preprocessing took place in the file `preprocess.py` <br>
