@@ -77,6 +77,11 @@ In order to evaluate which method resulted in a better model w.r.t rare industri
 Those methods are being compared in `Framework.ipynb` notebook as we will explain in the next section.
 <br>
 
+### Results
+![Recall per Industry Scatter](Images/RecallPerIndustryScatter.JPG "Recall per Industry Scatter")
+![Average Recall per Industry](Images/AvgRecallPerInd.png "Average Recall per Industry")
+![Micro Macro F1](Images/MicroMacroF1.png "Micro Macro F1")
+
 
 ### Reproduction
 * Note that all scripts and notebooks have hard-coded paths, if you want to reproduce with different dataset or setup you should change those paths.
